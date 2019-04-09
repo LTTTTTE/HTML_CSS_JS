@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    .bt {
+        height: 150px;
+        width: 150px;
+        font-size: 120px;
+        color: white;
+        background-color: blue;
+        border-radius: 20px;
+    }
+</style>
+
+<script>
+    var count = 0;
+
+    function clicked_bt_1() {
+
+        if (count < 3&&document.getElementById('1').value =='X') {
+            document.getElementById('1').value = Math.floor(Math.random() * 3);
+            count++;
+            end()
+        }
+    }
+
+    function clicked_bt_2() {
+        if (count < 3&&document.getElementById('2').value =='X') {
+            document.getElementById('2').value = Math.floor(Math.random() * 3);
+            count++;
+            end()
+        }
+    }
+
+    function clicked_bt_3() {
+        if (count < 3&&document.getElementById('3').value =='X') {
+            document.getElementById('3').value = Math.floor(Math.random() * 3);
+            count++;
+            end()
+        }
+    }
+
+    function end(){
+        if(count>2){            
+            var a1 = document.getElementById('1').value;
+            var a2 = document.getElementById('2').value;
+            var a3 = document.getElementById('3').value;
+
+            if(a1==a2&&a2==a3){
+                document.getElementById('4').innerHTML ="Great";
+                document.body.style.backgroundColor = "green";
+            }
+            else{
+                document.getElementById('4').innerHTML ="Bad";
+                document.body.style.backgroundColor = "red";
+            }
+            
+            document.getElementById('4').hidden = false;
+            document.getElementById('5').hidden = false;
+        }
+    }
+
+    function click_bt_reset(){
+        document.body.style.backgroundColor = "white";
+        document.getElementById('1').value = 'X';
+        document.getElementById('2').value = 'X';
+        document.getElementById('3').value = 'X';
+        document.getElementById('4').hidden = true;
+        document.getElementById('5').hidden = true;
+        count = 0;
+    }
+
+</script>
+<body>
+
+    <h2>갬블링 게임</h2>
+
+    <p>각 버튼을 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+    <hr>
+    <input class="bt" id="1" type="button" value="X" onclick="clicked_bt_1()" />
+    <input class="bt" id="2" type="button" value="X" onclick="clicked_bt_2()" />
+    <input class="bt" id="3" type="button" value="X" onclick="clicked_bt_3()" />
+    <p hidden="true" id="4" style="font-weight: bolder;font-size: 20px;"></p>
+    <input hidden="true" id="5" type="button" value="Reset" onclick="click_bt_reset()" style="width: 50;height: 30; margin: 5%;">
+</body>
+
+</html>

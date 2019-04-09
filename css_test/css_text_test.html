@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>CSSTEST</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    html {
+        background-color: dimgray;
+        cursor: crosshair;
+        
+    }
+
+    body {
+        margin: 1.5%;
+        border-width: 3px;
+        border-color: gray;
+        border-style: dotted;
+        border-radius: 25px;
+        padding: 10px;
+
+    }
+
+    .sty_pretty {
+        background-color: aqua;
+        color: rgb(209, 6, 40);
+        font-weight: bolder;
+        font-size: larger;
+
+    }
+
+    .border_in {
+        border: 3px;
+        border-color: blue;
+        border-style: groove;
+        padding: 5px;
+
+    }
+
+    #unique_word {
+        font-weight: 900;
+        border: 5px;
+        border-color: red;
+        border-style: outset;
+        background-color: darkturquoise;
+
+
+    }
+
+    .Elder p .global_class{
+        background-color: green;
+    }
+    body *:hover{
+        background-color: pink;
+    }
+
+    .boxed{
+        font-weight: bolder;
+        color: black;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        border-radius: 20px;
+        padding: 5px;
+        background-color: gray;
+        box-shadow: 2px 2px 2px black,0 0 25px blue,0 0 5px darkblue;
+
+    }
+</style>
+
+<body>
+    <div class="Elder">
+        <p>Lorem, ipsum dolor <span style="font-weight:bolder;background-color: darkmagenta;color: khaki"> sit</span>
+            amet consectetur adipisicing elit.
+            <span class="sty_pretty"> doloremque </span> voluptas sequi <span class="border_in">nisi</span> minima quia
+            cum,
+            porro <span class="global_class"> magni</span> delectus pariatur id eum ipsum ipsa necessitatibus molestiae
+            cupiditate illum velit <span id="unique_word">voluptatem!</span>
+        </p>
+    </div>
+
+    <p class="global_class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, inventore sint! Ad, distinctio? Consequatur, aut magnam? Deleniti voluptatibus quae repellendus delectus ducimus illo doloremque corrupti expedita eveniet. Sequi, nisi blanditiis!</p>
+
+    <p class="boxed">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, unde enim fugit consectetur modi, impedit perferendis corporis excepturi debitis consequuntur numquam consequatur. Nihil autem blanditiis, officiis magnam beatae ut voluptatibus?
+
+    </p>
+</body>
+
+</html>

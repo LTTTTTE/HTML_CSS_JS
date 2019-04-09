@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>foo_06</title>
+</head>
+
+<body>
+    <h2>별문자 출력하기</h2>
+    <hr>
+    <script>
+        var n;
+        do {
+            n = prompt("정수를 입력하세요", "");
+        } while (n == null)
+
+        document.write("<p style='text-align: center'>")
+        for(var i=1;i<=n;i++){
+            for(var j=0;j<i;j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("</p>");
+
+    </script>
+    
+</body>
+
+</html>

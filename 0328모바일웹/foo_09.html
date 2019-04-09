@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Foo_09</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    td {
+        width: 70px;
+        height: 70px;
+        border: 2.5px;
+        border-color: blue;
+        border-style: solid;
+    }
+</style>
+
+<script>
+    //"media/donkey.png"
+
+    var now_index;
+
+    function Constructor() {
+
+        var rand = Math.floor(Math.random() * document.images.length);
+        document.images[rand].src = "media/donkey.png";
+        now_index = rand;
+        for (var i = 0; i < document.images.length; i++) {
+            document.images[i].onclick = change_img;
+        }
+    }
+
+    function change_img() {
+        document.images[now_index].src = "";
+        now_index = Math.floor(Math.random() * document.images.length);
+        document.images[now_index].src = "media/donkey.png";
+    }
+</script>
+
+<body style="margin: 3%" onload="Constructor()">
+    <script>
+        document.write("<table class='td'>");
+        for (var i = 0; i < 10; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < 10; j++) {
+                document.write("<td>");
+                document.write("<img src=''>");
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

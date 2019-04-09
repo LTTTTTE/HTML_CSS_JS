@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>나의소개</title>
+</head>
+
+<style>
+    .text_big_brown{
+        font-size: larger;
+        color: brown;
+    }
+</style>
+<script>
+function show_img(){
+    document.getElementById('shrek').src = "media/shrek.png";
+}
+function hide_img(){
+    document.getElementById('shrek').src = "";
+}
+</script>
+
+<body style="background-color: rgb(216, 216, 248);margin-left: 3%;margin-right: 3%">
+    <h3 style='text-align: center;color: blue' onmouseover="show_img()" onmouseout="hide_img()">슈렉</h3>
+    <hr style="height: 10px;background-color:gray">
+
+    <img type="image" id="shrek" src="">
+    <p style="color: green">저는 대한민국에서 태어나서 컴퓨터 공학을 전공하는 학생입니다. 
+        제가 제일 좋아하는 과목은 <span class="text_big_brown">웹 프로그래밍</span>이고, 
+        그 중에서도 <span class="text_big_brown">자바스크립트</span>를 제일 잘합니다.
+    </p>
+
+</body>
+</html>
