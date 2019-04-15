@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        display: inline-block;
+        width: 60px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <script>
+        var colorNames = ["maroon","red","orange","yellow","olive","purple","fuchsia","white","lime","green","navy","blue","aqua","teal","black","silver","gray"];
+        colorNames.forEach(x=>{
+            document.write('<div style="background-color: '+x+'">'+x+'</div>');
+        })  
+    </script>
+</body>
+</html>

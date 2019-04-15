@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Book(title,author,price){
+            this.title=title;
+            this.author=author;
+            this.price=price;
+        }
+
+        var stringlist = new Array(5);
+        var booklist = new Array();
+        var book = new Array(5);
+        
+        for(var i=0;i<5;i++){
+            stringlist[i]=prompt("콤마분리 책제목 저자 가격 입력");
+            booklist = stringlist[i].split(",");
+            book[i] = new Book(booklist[0],booklist[1],booklist[2]);
+        }
+
+        var bigprice=0;
+        var big="";
+        book.forEach(x=>{
+            document.write(x.title+","+x.author+","+x.price);
+            document.write("<br>");
+            if(parseInt(x.price)>parseInt(bigprice)){
+                bigprice=x.price;
+                big=x.title;
+            }
+        })
+
+        document.write("<hr>");
+
+        document.write("가장 비싼 책 : "+big);
+        
+
+        
+        
+
+    </script>
+</body>
+</html>

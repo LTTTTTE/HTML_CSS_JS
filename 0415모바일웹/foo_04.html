@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        일요일은 pink 다른요일은  gold
+    </h1>
+    <hr> 
+    <script>
+        var date = new Date();
+        day = date.getDay();
+        document.write("현재시간 : " +date);
+        if(day==6)
+            document.body.style.backgroundColor = "pink";
+        else
+            document.body.style.backgroundColor = "gold";
+    </script>
+
+</body>
+</html>

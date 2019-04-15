@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>난수 생성기</h1>
+    <hr>
+    <script>
+        
+        function rand_int(){
+            return Math.floor(Math.random()*100)+1;
+        }
+        
+        var array = new Array();
+        
+        for(var i=0;i<10;i++)
+            array[i]=rand_int();
+        
+        document.write("난수 : ");
+        array.forEach(x => {
+            document.write(x+ " ");
+        });
+        document.write("<hr>");
+
+        var big_int=0;
+        array.forEach(x=>{
+            x>big_int?big_int=x:document.write();
+        })
+
+        document.write("큰수 : " + big_int);
+        
+        document.write("<hr>");
+
+        array.sort( (a,b)=>{
+            if(parseInt(a)>parseInt(b))
+                return 1;
+            else return -1;
+        } );
+        //기존 sort는 문자열 비교해서 sort하기때문에
+        // Compare Function 변경.
+        document.write("sorted : ");
+        array.forEach(x=>{
+            document.write(x + " ");
+        })
+
+    </script>
+</body>
+</html>

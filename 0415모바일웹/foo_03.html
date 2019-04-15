@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        오전이면 lightskyblue 오후이면 orange
+    </h1>
+    <hr>
+
+    <script>
+        var date = new Date();
+        hour = date.getHours();
+        document.write("현재시간 : " +date);
+        if(hour<12)
+            document.body.style.backgroundColor = "lightskyblue";
+        else
+            document.body.style.backgroundColor = "orange";
+    </script>
+</body>
+</html>

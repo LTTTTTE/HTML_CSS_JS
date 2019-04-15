@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        div{
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+            
+        }
+</style>
+<body>
+    <script>
+        function rand_int(){
+            return Math.floor(Math.random()*254)+1;
+        }
+
+        var list = new Array(16);
+
+        for(var i=0;i<16;i++){
+            var a = rand_int();
+            var b = rand_int();
+            var c = rand_int();
+            document.write('<div style="background-color: rgb('+a+','+b+','+c+')">rgb('+a+','+b+','+c+')</div>');
+        }
+    </script>
+</body>
+</html>

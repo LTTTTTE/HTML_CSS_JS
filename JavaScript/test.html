@@ -9,9 +9,26 @@
 
 <body>
     <script>
+
+        var date_today = new Date();
+        document.write(date_today.toLocaleDateString());
+        document.write("<br>");
+        document.write("요일변수 : "+date_today.getDay());
+        document.write("<hr>");
+
+        var testList = new Array();
+        testList[0] = 10;
+        testList[2] = 3;
+        testList[5] = 3;
+        document.write("Array length: " + testList.length);
+        document.write("<br>");
+        document.write("Array length: " + testList.length);
+        
+        document.write("<hr>");
+
         var list = new Array("가나다","ABC","123");
         var string_1 = "123456789";
-        document.writeln(list.every(value=>(value.length==3)));
+        document.writeln("리스트내의 각 모든놈의 길이가 3인지여부 : " + list.every(value=>(value.length==3)));
         //리스트내의 각 모든놈의 길이가 3인지여부
 
         document.write("<hr>");
@@ -31,10 +48,6 @@
         
         document.write("<hr>");
 
-        
-
-
-        
     </script>    
 </body>
 </html>
