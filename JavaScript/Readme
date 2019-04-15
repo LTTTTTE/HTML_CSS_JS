@@ -1,0 +1,2 @@
+JavaScript의 람다 와 sort(compareFn(a,b)=>{ return1;return-1;})
+그리고 Array
