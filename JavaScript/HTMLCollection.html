@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p class="hi">a</p>
+    <p class="hi">b</p>
+    <p class="hi">c</p>
+    <p class="hi">d</p>
+    <p class="hi">e</p>
+    <p class="hi">f</p>
+
+
+    <script>
+
+        var HTMLCollection = document.getElementsByClassName("hi");
+        
+        function func1(){
+        Array.prototype.forEach.call(HTMLCollection,function(col){
+            col.innerHTML = "zz";
+        })
+        }///HTMLCollection forEach Iteration
+
+        function func2(){
+            var arr = Array.from(HTMLCollection);
+
+            arr.forEach(x=>{
+                x.innerHTML = "xx";
+            })
+        }//HTMLCollection to ArrayList
+
+        //func1();
+        func2();
+        
+        
+
+
+    </script>
+</body>
+</html>

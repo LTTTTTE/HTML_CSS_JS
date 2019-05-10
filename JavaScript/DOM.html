@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        div1이다.
+    </div>
+    <div>
+        div2이다.
+    </div>
+    <div>
+        div3이다.
+    </div>
+    <div>
+        div4이다.
+    </div>
+    <script>
+    var divs = document.getElementsByTagName('div');
+    document.writeln(divs.length);
+
+    for(var i=0;i<divs.length;i++){
+       document.writeln(divs[i].innerHTML); 
+    }
+
+    document.write('<hr>');
+    document.write('<hr>');
+
+    var arrDivs = Array.from(divs);  
+    arrDivs.forEach(x=>{
+        document.writeln(x.innerHTML);
+    })
+
+    document.write('<hr>');
+    document.write('<hr>');
+
+    Array.prototype.forEach.call(divs,function(x){
+        document.writeln(x.innerHTML);
+    })
+
+    document.write('<hr>');
+    document.write('<hr>');
+    document.write('<hr>');
+    document.write('<hr>');
+
+    function changeColor(obj){
+        obj.style.backgroundColor = "blue";
+    }
+    </script>
+
+    <button onclick="changeColor(this)" value="button">button</button>
+</body>
+</html>
