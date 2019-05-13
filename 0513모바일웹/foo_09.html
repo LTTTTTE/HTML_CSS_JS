@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>라면을 끓이는 순서</h3>
+    <ol type="A" id="orderedlist">
+        <li>물을 끓인다.</li>
+    </ol>
+</body>
+<script>
+    var listOL = Array.from(document.getElementsByTagName('OL'));
+    listOL.forEach(x=>{
+        x.addEventListener('click',function(args){          
+            var nodeLi = document.createElement("LI");
+            nodeLi.appendChild(document.createTextNode(prompt("String 입력")));
+            args.target.appendChild(nodeLi);  
+        })
+    })
+</script>
+</html>

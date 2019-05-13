@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+</head>
+  <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <div class="test01">hi</div>
+    <div class="test02">hi</div>
+    <div class="test01">hi</div>
+
+    <ul>
+        <li class="li01">li01_test</li>
+        <li class="li01">li01_test2</li>
+        <li class="li01">li01_test3</li>
+        <li class="li01">li01_test4</li>
+        <li class="li02">li01_test5</li>
+        <li class="li02">li01_test6</li>
+        <li class="li02">li01_test7</li>
+    </ul>
+
+    
+
+    <script>
+        $('.test01').html('helloWorld').css('backgroundColor','blue')
+        $('li.li01').click(function(){
+            if($(this).css('backgroundcolor')=='green'){
+                $(this).css('backgroundColor','black')
+            }
+            $(this).css('backgroundColor','green')
+        })
+        $('ul li.li02').click(function(){
+            $(this).css('backgroundColor','yellow')
+        })
+    </script>
+  </body>
+</html>

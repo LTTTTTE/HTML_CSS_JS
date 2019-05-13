@@ -21,31 +21,31 @@
     </div>
     <script>
     var divs = document.getElementsByTagName('div');
+    document.write('<hr>');
     document.writeln(divs.length);
-
+    document.write('<hr>');
+    document.write('<h2>HTMLCollection을 [index]로 iteration</h2>')
     for(var i=0;i<divs.length;i++){
        document.writeln(divs[i].innerHTML); 
     }
 
     document.write('<hr>');
-    document.write('<hr>');
-
+    
+    document.write('<h2>Array.from으로 Array로 바꾼후 forEach iteration</h2>')
     var arrDivs = Array.from(divs);  
     arrDivs.forEach(x=>{
         document.writeln(x.innerHTML);
     })
 
     document.write('<hr>');
-    document.write('<hr>');
-
+    document.write('<h2>Array의 static method로 forEach iteration</h2>')
     Array.prototype.forEach.call(divs,function(x){
         document.writeln(x.innerHTML);
     })
 
     document.write('<hr>');
-    document.write('<hr>');
-    document.write('<hr>');
-    document.write('<hr>');
+
+    document.write("<h2>객체 색상바꾸는 컴포넌트 메소드</h2>")
 
     function changeColor(obj){
         obj.style.backgroundColor = "blue";
@@ -53,5 +53,51 @@
     </script>
 
     <button onclick="changeColor(this)" value="button">button</button>
+    <p onclick="changeColor(this)">뀨</p>
+
+    <hr>
+    <h2>script만으로 태그마다 Event추가하기(Lambda) </h2>
+    <p id="wantColor">염색이 하고시포</p>
+    <p id="wantContent">내용이 바뀌고시포</p>
+    <script>
+        document.getElementById('wantColor').addEventListener('click',function(){
+            this.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            this.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        })
+        document.getElementById('wantContent').addEventListener('click',function(args){
+            args.target.innerHTML = prompt("바꿀내용");
+        })
+    </script>
+
+    <hr>
+    <h2>
+        마우스 이벤트
+    </h2>
+    <p class="mousePlace" style="border : 2px solid black">.</p>
+    <p class="mousePlace" style="border : 2px dotted red">.</p>
+    <script>
+        var listP = Array.from(document.getElementsByClassName('mousePlace'))
+        listP.forEach(x=>{
+            x.addEventListener('mousedown',function(args){  
+                x.oncontextmenu = function(){
+                    return false;
+                }
+                args.preventDefault();
+                
+                args.target.innerHTML = args.buttons == 1 ? "좌클릭" : (args.buttons == 2 ? "우클릭" : (args.buttons == 3 ? "동시클릭" : "휠클릭"))
+            })
+        })
+    </script>
+
+    <hr>
+    <h2>키보드 이벤트</h2>
+    <lable id="showKeyboardResult"></lable>
+    <textarea style="border: 2px solid black" id="keyboardPlace">.</textarea>
+    
+    <script>
+        document.getElementById('keyboardPlace').addEventListener('keydown',function(args){
+            document.getElementById("showKeyboardResult").innerHTML = args.code;
+        })
+    </script>
 </body>
 </html>
