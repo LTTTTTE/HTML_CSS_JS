@@ -60,11 +60,11 @@
     <p id="wantColor">염색이 하고시포</p>
     <p id="wantContent">내용이 바뀌고시포</p>
     <script>
-        document.getElementById('wantColor').addEventListener('click',function(){
-            this.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-            this.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        document.getElementById('wantColor').addEventListener('click',(arg)=>{
+            arg.target.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            arg.target.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
         })
-        document.getElementById('wantContent').addEventListener('click',function(args){
+        document.getElementById('wantContent').addEventListener('click',(args)=>{
             args.target.innerHTML = prompt("바꿀내용");
         })
     </script>
@@ -78,8 +78,8 @@
     <script>
         var listP = Array.from(document.getElementsByClassName('mousePlace'))
         listP.forEach(x=>{
-            x.addEventListener('mousedown',function(args){  
-                x.oncontextmenu = function(){
+            x.addEventListener('mousedown',(args)=>{  
+                x.oncontextmenu = ()=>{
                     return false;
                 }
                 args.preventDefault();
@@ -95,9 +95,126 @@
     <textarea style="border: 2px solid black" id="keyboardPlace">.</textarea>
     
     <script>
-        document.getElementById('keyboardPlace').addEventListener('keydown',function(args){
+        document.getElementById('keyboardPlace').addEventListener('keydown',(args)=>{
             document.getElementById("showKeyboardResult").innerHTML = args.code;
         })
     </script>
+
+    <hr>
+    <h2>
+        마우스 이벤트 활용    
+    </h2>
+    <label for="textboxForMouseEvent01">휠돌리보거라</label>
+    <textarea style="border: 2px solid salmon ;" name="" id="textboxForMouseEvent01" cols="5" rows="1" readonly>0</textarea>
+
+    <script>
+        document.getElementById('textboxForMouseEvent01').addEventListener('wheel',(arg)=>{
+            
+            arg.preventDefault();
+
+            if(arg.wheelDelta > 0){
+                arg.target.value = parseInt(arg.target.value) + 1;
+            }
+            if(arg.wheelDelta < 0){
+                arg.target.value = parseInt(arg.target.value) - 1;
+            }
+            
+        })
+    </script>
+
+    <h2>마우스를 따라다님</h2>
+
+    <input id="buttonFollowMouse" type="button" value="On">
+    <script>
+        document.getElementById('buttonFollowMouse').addEventListener('click',(arg)=>{
+            (arg.target.value == "On") ? arg.target.value = "Off" : arg.target.value = "On";
+        })
+    </script>
+
+    <textarea name="" id="followMouse" cols="10" rows="1" readonly></textarea>
+
+    <script>
+        document.body.addEventListener('mousemove',(arg)=>{
+
+            var textbox = document.getElementById('followMouse');
+            textbox.value = "( "+arg.x+","+arg.y+" )";
+            
+            if(document.getElementById('buttonFollowMouse').value == "On")
+                return false;
+            
+            textbox.style.position = 'fixed';
+            textbox.style.left = arg.x+10+'px';
+            textbox.style.top = arg.y+5+'px';
+            
+        })
+    </script>
+
+    <h2>한컴타자연습</h2>
+    
+    <input id="keyboardEx" type="text" size="50" value="the quick brown fox jumps over the lazy dog" style="border: 2px solid magenta ;color: dimgrey; padding: 2px" readonly>
+    <label id="exDebug" for="keyboardEx">hi</label>
+    <script>
+       
+        var debug = document.getElementById('exDebug')
+        var string = Array.from(document.getElementById('keyboardEx').value);
+        var index = 0
+        var stack = new Array();
+
+        document.getElementById('keyboardEx').addEventListener('keydown',(arg)=>{
+            
+            var key = arg.code
+
+            if(key=='Backspace'){
+                key = debug.innerHTML = "Backspace!!"
+                if(index==0) return;
+                string[--index] = stack.pop();
+                document.getElementById('keyboardEx').value = string.toString().replace(/,/gi,"")
+
+                if(string.toString().includes('-')){
+                    document.getElementById('keyboardEx').style.borderColor = "red"
+                }
+                else
+                    document.getElementById('keyboardEx').style.borderColor = "green"
+                return;
+            }
+            if(key=='Space'){
+                key = debug.innerHTML = "Space!!"
+                if(string[index]==" "){
+                    stack.push(string[index])
+                    string[index++] = '*'
+                    document.getElementById('keyboardEx').value = string.toString().replace(/,/gi,"")
+                    return;
+                }
+            }
+            if(key=='Enter'){
+                key = debug.innerHTML = "Enter!!"
+                
+            }
+            if(key.includes("Key")){
+                key = debug.innerHTML = key.split("Key")[1].toLowerCase();
+            }
+            if(index==string.length){
+                return;
+            }
+            
+            if(string[index] == key){
+                stack.push(string[index])
+                string[index++] = '*'
+                document.getElementById('keyboardEx').value = string.toString().replace(/,/gi,"")   
+            }
+            else{
+                stack.push(string[index])
+                string[index++] = '-'
+                document.getElementById('keyboardEx').value = string.toString().replace(/,/gi,"")
+            }
+
+            if(string.toString().includes('-')){
+                document.getElementById('keyboardEx').style.borderColor = "red"
+            }
+            else
+                document.getElementById('keyboardEx').style.borderColor = "green"
+            
+       })
+    </script> 
 </body>
 </html>
