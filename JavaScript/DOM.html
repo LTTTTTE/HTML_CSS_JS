@@ -216,5 +216,19 @@
             
        })
     </script> 
+
+    <h2>람다식 2개넣기</h2>
+    <script>
+            Array.from(document.getElementsByTagName('SPAN')).forEach(x=>{
+                x.addEventListener('mouseenter',(arg)=>{
+                    arg.target.style.textDecoration = 'underline'
+                },
+                x.addEventListener('mouseleave',(arg)=>{
+                    arg.target.style.textDecoration = 'none'
+                })
+                    
+                )
+            })
+        </script>
 </body>
 </html>

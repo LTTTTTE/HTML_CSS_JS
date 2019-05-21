@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>
+        다른곳 클릭하면 흐려지고 다시 요기로오면 하얘짐
+    </h2>
+    <hr>
+
+    <script>
+
+        window.addEventListener('focus',(arg)=>{
+            document.body.style.backgroundColor = 'white'
+        },false)
+        window.addEventListener('blur',(arg)=>{
+            document.body.style.backgroundColor = 'lightgray'
+        },false)
+        
+    </script>
+</body>
+</html>

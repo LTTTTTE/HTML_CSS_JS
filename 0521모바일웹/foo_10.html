@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    table input{
+        width: 70px;
+        height: 25px;
+        margin: 2%
+    }
+    tr,td{
+        padding: 3px
+    }
+</style>
+<body>
+    <h2>계산기</h2>
+    <hr>
+    <input id="sik" size="45" type="text" value="0">
+    <br>
+    <table>
+        <tr>
+            <td><input id="back" type="button" value="BACK"></td>
+            <td><input id="ce" type="button" value="CE"></td>
+            <td><input id="c" type="button" value="C"></td>
+            <td><input id="=" type="button" value="="></td>
+        </tr>
+        <tr>
+            <td><input id="7" type="button" value="7"></td>
+            <td><input id="8" type="button" value="8"></td>
+            <td><input id="9" type="button" value="9"></td>
+            <td><input id="/" type="button" value="/"></td>
+        </tr>
+        <tr>
+            <td><input id="4" type="button" value="4"></td>
+            <td><input id="5" type="button" value="5"></td>
+            <td><input id="6" type="button" value="6"></td>
+            <td><input id="*" type="button" value="*"></td>
+        </tr>
+        <tr>
+            <td><input id="1" type="button" value="1"></td>
+            <td><input id="2" type="button" value="2"></td>
+            <td><input id="3" type="button" value="3"></td>
+            <td><input id="-" type="button" value="-"></td>
+        </tr>
+        <tr>
+            <td><input id="0" type="button" value="0"></td>
+            <td><input id="+" type="button" value="+"></td>
+            <td><input id="none1" type="button" value="NONE"></td>
+            <td><input id="none2" type="button" value="NONE"></td>
+        </tr>
+    </table>
+
+    <script>
+        
+        Array.from(document.getElementsByTagName('INPUT')).forEach(x => {
+            x.addEventListener('click',(arg)=>{
+                var sik = document.getElementById('sik');
+
+                if(arg.target.value == "NONE") return;
+
+                if(arg.target.value == "BACK"){
+                    sik.value = sik.value.substring(0,sik.value.length-1)
+                    if(sik.value.length == 0) sik.value = "0"
+                    return;
+                }
+                if(arg.target.value == "CE" || arg.target.value == "C"){
+                    sik.value = "0";
+                    return;
+                }
+                if(arg.target.value == "="){
+                    sik.value = eval(sik.value);
+                    return;
+                }
+
+                if(sik.value == "0")
+                    sik.value = arg.target.value;
+                else
+                    sik.value +=arg.target.value;
+            })
+        });
+    </script>
+</body>
+</html>

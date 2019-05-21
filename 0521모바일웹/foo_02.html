@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="radio1">귤</label>
+        <input name="1" id="1" type="radio" value="귤">
+        <label for="radio2">고구마</label>
+        <input name="1" id="2" type="radio" value="고구마">
+        <label for="radio3">양배추</label>
+        <input name="1" id="3" type="radio" value="양배추">
+    </div>
+
+    <img id="img" src="" alt="">
+    
+    <script>
+        var radioList = document.getElementsByName('1');
+        for(var i=0;i<radioList.length;i++){
+            radioList[i].addEventListener('click',(arg)=>{
+                var locate = "./resources/"
+                document.getElementById('img').src = locate+arg.target.id+".jpg"
+            })
+        }
+            
+    </script>
+</body>
+</html>

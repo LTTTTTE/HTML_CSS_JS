@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>SPAN 태그에 밑줄긋기</h2>
+    <hr>
+    <p><span>Lorem</span>, ipsum dolor sit amet consectetur <span>adipisicing</span> elit.
+         Pariatur <span>cupiditate</span> sed, temporibus <span>praesentium</span> quidem reprehenderit 
+         <span>accusantium</span> odio exercitationem animi <span>voluptatibus</span> rem earum sapiente
+          eius qui, <span>expedita</span>, veniam aliquam <span>corporis</span> impedit.</p>
+    <script>
+        Array.from(document.getElementsByTagName('SPAN')).forEach(x=>{
+            x.addEventListener('mouseenter',(arg)=>{
+                arg.target.style.textDecoration = 'underline'
+            },
+            x.addEventListener('mouseleave',(arg)=>{
+                arg.target.style.textDecoration = 'none'
+            })
+                
+            )
+        })
+    </script>
+</body>
+</html>

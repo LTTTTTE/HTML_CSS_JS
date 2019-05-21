@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>이미지 휠로 확대축소</h2>
+
+    <img id="img" src="./resources/2.jpg" alt="">
+
+    <script>
+        document.getElementById('img').addEventListener('wheel',(arg)=>{
+            arg.preventDefault();
+            if(arg.wheelDelta > 0){
+                arg.target.width = (parseFloat(arg.target.width)*1.05); 
+                arg.target.height = (parseFloat(arg.target.height)*1.05); 
+            }
+            if(arg.wheelDelta < 0){
+                arg.target.width = (parseFloat(arg.target.width)*0.95);
+                arg.target.height = (parseFloat(arg.target.height)*0.95);  
+            }
+        })
+    </script>
+</body>
+</html>
