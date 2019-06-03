@@ -5,30 +5,26 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
     <h3>
-        라면을 끓이는 순서
+        자바스크립트란?
+        <button>border</button>
+        <button>p</button>
     </h3>
-    <div class="test01">hi</div>
-    <ul>
-        <li>물을끓인다아.</li>
-        <li>라면과 스프를 넣는다.</li>
-        <li>파를 썰어 넣는다.</li>
-        <li>5분후 맛있게먹는당.</li>
-    </ul>
-    
-    <script>
+    <hr>
+    <p>자바스크립트는 웹 프로그래밍 언어로서 웹 페이즈를 동적 변경시킬 수 있다.</p>
+    <p><span id="mySpan">C 언어</span>를 아는 사용자는 빠르게 학습할 수 있다.</p>
+    <p>이벤트 등 GUI 프로그래밍에 필요한 요소들이 있어 학습에 약간의 어려움이 있다.</p>
+    <hr>
 
-      $('ul li').bind("mouseover",(arg)=>{
-          $(arg.target).css("backgroundColor", "green");
-      }).bind("mouseleave",(arg)=>{
-          $(arg.target).css("backgroundColor","white");
-      })
-    </script>  
-  </body>
+    <script>
+        var buttonList = $("P");
+        var buttonBorder = buttonList[0];
+    </script>
+
+ </body>
 </html>
