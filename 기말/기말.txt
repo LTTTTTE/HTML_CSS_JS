@@ -1,0 +1,127 @@
+
+DOM         Document Object Model
+
+DOM은 각 객체가 트리형태로 구성되어있다,
+
+HTML 태그들을 제어하기위해 존재하며  각 HTML 태그당 DOM 객체가 생성된다.
+
+window(BOM) -> document(DOM시작 root) -> html -> body 또는 head 로 시작한다.
+
+브라우저가 화면을 그리는과정.
+
+1. 최초 DOM 트리 document root 생성.
+2. HTML태그들을 읽고 DOM객체 생성하며 DOM트리에 추가. CSS도 읽어서 CSS Object Model 생성
+3. 두개합쳐 Render Tree생성
+4. 브라우저는 render tree를 위치에맞게 화면에 출력.
+
+DOM수정이되면 
+DOM트리를 다시 최신화하여 화면을 업데이트하게되는데....
+요청이많을수록 비용이많이소모된다.
+
+/////////////////
+HTML 태그는 
+
+태그이름
+속성(attribute)
+CSS (style)
+EventListener
+innerHTML
+
+로 구성되어있다.
+////////////////////
+DOM 객체는
+
+property(attribute)
+CSS (style)
+EventListener
+Method
+Collection
+
+로 구성되어있다.
+//////////////////
+
+//
+HTML 태그의 동적 추가 , 삭제
+//
+
+var newElement = document.createElement('tagName')      tagName인 태그를 생성함.
+
+newElement.setAttribute('attName','values')               key value값으로 태그의 attribute값을 설정가능
+
+x.appendChild(arg)            x element 에 arg 엘리먼트를 자식으로 추가 
+
+x.removeChild(arg)              x 에 arg 엘리먼트를 삭제 (arg를 선택자로 뽑아내어 사용하면 좋음)
+
+
+/////
+이벤트추가하기.
+
+<script>
+    function over(e){
+        e.style.backgroundColor = 'blue';
+    }
+    function over2(){
+        this.style.backgroundColor = 'green';
+    }
+</script>
+<p onmouseover="over(this)">태그에 메소드작성</p>
+<p onmouseover="this.style.backgroundColor = 'yellow'">태그에 메소드작성</p>   
+<p onmouseover="{this.style.backgroundColor = 'yellow';this.style.color = 'red'}">
+태그에 여러줄 메소드작성</p>
+
+<p id="p1">프로퍼티에 값 추가</p>
+<p id="p2">프로퍼티에 값 추가</p>
+<p id="p3">addEventListener로추가</p>
+<p id="p4">addEventListener로추가</p>
+<script>
+    document.getElementById('p1').onmouseover = over2;
+    document.getElementById('p2').onmouseover = function(){
+        this.style.backgroundColor = 'black'
+    }
+    document.getElementById('p3').addEventListener('mouseover',over2);
+    document.getElementById('p4').addEventListener('mouseover',(e)=>{
+        e.target.style.backgroundColor = 'red'
+    })
+</script>
+
+
+기본이벤트 삭제
+
+onclick = "return false"
+또는
+
+addEventListener('click',(e)=>{
+    e.preventDefault();
+})
+
+
+이벤트흐름에는 
+
+이벤트는 발생시 최상위 window node 부터 
+이벤트 발생한 target 노드까지의 이벤트가 발생하는  이벤트 캡쳐링 단계와
+
+이벤트 발생한 타겟부터 최상위 window node까지의 이벤트가 발생하는 버블링 단계가있다.
+
+addEventListener시 3번째 인수에 true를 넣으면 캡쳐링흐름이 실행되고
+false를 넣을시 버블링 단계가 실행된다. default는 false이다.
+
+html에서 element들은 누구의 자식이거나 부모인데. 클릭 이벤트시 
+자식을 클릭했을때 부모도 클릭한것이고 그 부모의 부모도 클릭한것이기때문에
+누가 먼저 실행 될지를 설정하기위해 이벤트흐름을 만들고
+이벤트 흐름에 이벤트 버블링을 넣게된것이다.
+
+
+문서 로딩 완료시 실행되는 메소드 onload
+
+
+REACT
+
+Virtual DOM 으로 
+기존에 DOM 재구성하던 방식 보다
+virtual DOM을 사용하여 update를 최소화시킴
+
+각 기능(Event , function)과 연관된 View 들이 
+동시에 포함된 컴포넌트 로 모듈화 되어
+코드의 재사용성이 높다.
+
+JSX는 기존js에서 좀더 생산성있게 추가된기능이 많다.
